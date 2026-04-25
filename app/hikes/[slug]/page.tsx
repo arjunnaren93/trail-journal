@@ -106,39 +106,47 @@ export default async function HikePage({
           </div>
         </div>
 
-        {/* ── Context strip — weather + tags ── */}
-        <div className="flex flex-wrap items-start gap-8 pb-14 border-b border-border">
-          <div>
-            <p className="text-[10px] text-muted tracking-[0.25em] uppercase mb-2">
-              Weather
+        {/* ── Hikers ── */}
+        {hike.hikers && hike.hikers.length > 0 && (
+          <div className="py-10 border-b border-border">
+            <p className="text-[10px] text-muted tracking-[0.35em] uppercase mb-6">
+              On This Hike
             </p>
-            <p className="text-sm text-cream/70">{hike.weather}</p>
-          </div>
-          <div className="w-px h-8 bg-border self-center hidden md:block" />
-          <div>
-            <p className="text-[10px] text-muted tracking-[0.25em] uppercase mb-2">
-              Trail Type
-            </p>
-            <p className="text-sm text-cream/70">
-              {hike.route.isLoop ? "Loop" : "Out & Back"}
-            </p>
-          </div>
-          <div className="w-px h-8 bg-border self-center hidden md:block" />
-          <div>
-            <p className="text-[10px] text-muted tracking-[0.25em] uppercase mb-3">
-              Tags
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {hike.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] tracking-[0.15em] uppercase text-muted border border-border px-3 py-1"
+            <div className="flex flex-wrap gap-6">
+              {hike.hikers.map((hiker) => (
+                <a
+                  key={hiker.instagram}
+                  href={`https://instagram.com/${hiker.instagram}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex flex-col items-center gap-2 group"
                 >
-                  {tag}
-                </span>
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border group-hover:border-gold transition-colors duration-300">
+                    <img
+                      src={hiker.avatar}
+                      alt={hiker.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="text-[10px] text-muted tracking-[0.1em] group-hover:text-gold transition-colors duration-300">
+                    @{hiker.instagram}
+                  </span>
+                </a>
               ))}
             </div>
           </div>
+        )}
+
+        {/* ── Tags ── */}
+        <div className="flex flex-wrap gap-2 pb-14 border-b border-border">
+          {hike.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[10px] tracking-[0.15em] uppercase text-muted border border-border px-3 py-1"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
 
         {/* ── Gear — compact horizontal grid ── */}

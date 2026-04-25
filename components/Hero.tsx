@@ -120,13 +120,13 @@ export default function Hero({ stats }: Props) {
           </div>
           <div className="w-px h-10 bg-border" />
           <div className="text-center">
-            <p className="font-mono text-3xl md:text-4xl text-cream">{stats.totalKm.toFixed(0)}</p>
-            <p className="text-[10px] text-muted tracking-[0.3em] uppercase mt-2">Kilometers</p>
+            <p className="font-mono text-3xl md:text-4xl text-cream">{(stats.totalKm * 0.621371).toFixed(1)}</p>
+            <p className="text-[10px] text-muted tracking-[0.3em] uppercase mt-2">Miles</p>
           </div>
           <div className="w-px h-10 bg-border" />
           <div className="text-center">
-            <p className="font-mono text-3xl md:text-4xl text-cream">{stats.totalElevationM.toLocaleString()}</p>
-            <p className="text-[10px] text-muted tracking-[0.3em] uppercase mt-2">Meters up</p>
+            <p className="font-mono text-3xl md:text-4xl text-cream">{Math.round(stats.totalElevationM * 3.28084).toLocaleString()}</p>
+            <p className="text-[10px] text-muted tracking-[0.3em] uppercase mt-2">Feet up</p>
           </div>
         </motion.div>
       </div>

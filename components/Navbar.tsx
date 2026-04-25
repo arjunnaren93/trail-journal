@@ -2,16 +2,33 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const [bgOpacity, setBgOpacity] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (!isHome) { setBgOpacity(1); return; }
+      const start = window.innerHeight * 0.7;
+      const end = window.innerHeight * 1.0;
+      const ratio = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
+      setBgOpacity(ratio);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 transition-all duration-500 ${
-        !isHome ? "bg-ink/90 backdrop-blur-sm border-b border-border" : ""
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-5 backdrop-blur-sm"
+      style={{
+        background: `rgba(8, 8, 8, ${bgOpacity * 0.9})`,
+        borderBottom: `1px solid rgba(255,255,255,${bgOpacity * 0.08})`,
+      }}
     >
       <Link
         href="/"
@@ -26,9 +43,14 @@ export default function Navbar() {
         >
           Hikes
         </Link>
-        <span className="text-xs tracking-[0.2em] uppercase text-muted/40">
-          2024
-        </span>
+        <a
+          href="https://arjunnarendran.com"
+          target="_blank"
+          rel="noreferrer"
+          className="text-xs tracking-[0.2em] uppercase text-muted hover:text-gold transition-colors duration-300"
+        >
+          Portfolio ↗
+        </a>
       </div>
     </nav>
   );

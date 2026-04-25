@@ -81,12 +81,12 @@ export default function HikeCard({ hike, index, reversed = false }: Props) {
               <div className="w-full h-px bg-border mb-6" />
               <div className="grid grid-cols-3 gap-4 mb-5">
                 <div>
-                  <p className="font-mono text-xl text-cream">{hike.distanceKm}</p>
-                  <p className="text-[10px] text-muted tracking-widest uppercase mt-1">km</p>
+                  <p className="font-mono text-xl text-cream">{(hike.distanceKm * 0.621371).toFixed(1)}</p>
+                  <p className="text-[10px] text-muted tracking-widest uppercase mt-1">miles</p>
                 </div>
                 <div>
-                  <p className="font-mono text-xl text-cream">+{hike.elevationGainM}</p>
-                  <p className="text-[10px] text-muted tracking-widest uppercase mt-1">elev m</p>
+                  <p className="font-mono text-xl text-cream">+{Math.round(hike.elevationGainM * 3.28084).toLocaleString()}</p>
+                  <p className="text-[10px] text-muted tracking-widest uppercase mt-1">elev ft</p>
                 </div>
                 <div>
                   <p className="font-mono text-xl text-cream">{formatDuration(hike.durationMin)}</p>

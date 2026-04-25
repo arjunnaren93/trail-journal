@@ -20,7 +20,7 @@ export default function HomePage() {
             </h2>
           </div>
           <p className="hidden md:block text-xs text-muted tracking-[0.2em] uppercase">
-            {HIKES.length} hikes &nbsp;·&nbsp; {SEASON_STATS.totalKm.toFixed(0)} km
+            {HIKES.length} hikes &nbsp;·&nbsp; {(SEASON_STATS.totalKm * 0.621371).toFixed(1)} mi
           </p>
         </div>
 
@@ -41,8 +41,8 @@ export default function HomePage() {
           Trail Journal · Arjun Narendran · 2026
         </p>
         <p className="text-xs text-muted">
-          {SEASON_STATS.totalKm.toFixed(1)} km ·{" "}
-          +{SEASON_STATS.totalElevationM.toLocaleString()} m elevation
+          {(SEASON_STATS.totalKm * 0.621371).toFixed(1)} mi ·{" "}
+          +{Math.round(SEASON_STATS.totalElevationM * 3.28084).toLocaleString()} ft
         </p>
       </footer>
     </>

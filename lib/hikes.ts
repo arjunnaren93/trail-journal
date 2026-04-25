@@ -20,6 +20,12 @@ export interface HikeRoute {
   isLoop?: boolean;
 }
 
+export interface Hiker {
+  name: string;
+  instagram: string;
+  avatar: string;
+}
+
 export interface Hike {
   slug: string;
   name: string;
@@ -40,58 +46,58 @@ export interface Hike {
   weather: string;
   tags: string[];
   upcoming?: boolean;
+  hikers?: Hiker[];
 }
 
 export const HIKES: Hike[] = [
   {
-    slug: "diablo-lake-thunder-knob",
-    name: "Thunder Knob",
-    tagline: "Turquoise water, North Cascades silence, and the first trail of the season",
-    date: "April 26, 2026",
-    location: "Colonial Creek, North Cascades, WA",
-    region: "North Cascades",
-    distanceKm: 6.1,
-    elevationGainM: 165,
-    maxElevationM: 584,
-    durationMin: 150,
+    slug: "dirty-harrys-balcony",
+    name: "Dirty Harry's Balcony",
+    tagline: "Birdhouses, old-growth forest, and a front-row seat to the Snoqualmie Valley",
+    date: "April 25, 2026",
+    location: "North Bend, WA",
+    region: "I-90 Corridor",
+    distanceKm: 6.9,
+    elevationGainM: 420,
+    maxElevationM: 817,
+    durationMin: 165,
     difficulty: "Moderate",
-    upcoming: true,
-    heroImage: "https://picsum.photos/seed/diabloherp/1600/900",
+    heroImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=85&auto=format",
     photos: [
       {
-        src: "https://picsum.photos/seed/diablo1/1200/800",
-        alt: "Diablo Lake from Thunder Knob",
-        caption: "Diablo Lake from the summit — that turquoise is real",
+        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85&auto=format",
+        alt: "View from Dirty Harry's Balcony across the Snoqualmie Valley",
+        caption: "The Balcony — McClellan Butte and Mount Washington laid out across the valley",
         width: 1200,
         height: 800,
       },
       {
-        src: "https://picsum.photos/seed/diablo2/800/1200",
-        alt: "Trail through forest",
-        caption: "Douglas fir and western red cedar on the climb",
+        src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=85&auto=format",
+        alt: "Sunlit old-growth forest on the Birdhouse Trail",
+        caption: "The Birdhouse Trail climbs through second-growth Douglas fir — quiet and mossy in April",
+        width: 1200,
+        height: 800,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=85&auto=format",
+        alt: "Snoqualmie Valley from the ridge",
+        caption: "Looking back down the valley toward North Bend",
+        width: 1200,
+        height: 800,
+      },
+      {
+        src: "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=800&q=85&auto=format",
+        alt: "Misty forest trail in spring",
+        caption: "April mist on the climb — the trail earns the views",
         width: 800,
         height: 1200,
       },
-      {
-        src: "https://picsum.photos/seed/diablo3/1200/800",
-        alt: "North Cascades peaks",
-        caption: "Colonial Peak still holding snow in late April",
-        width: 1200,
-        height: 800,
-      },
-      {
-        src: "https://picsum.photos/seed/diablo4/1200/800",
-        alt: "Spring wildflowers",
-        caption: "Trillium on the forest floor",
-        width: 1200,
-        height: 800,
-      },
     ],
     story: [
-      "Winter held on longer than usual this year. Every weekend in March I'd check SR-20 on WSDOT, and every weekend the closure was still in place somewhere past Newhalem. By April the anticipation had built into something unreasonable for a 3.8-mile day hike.",
-      "The North Cascades Highway opening is its own ritual. The plows clear it, the rangers do their checks, and then one Thursday evening the website flips from 'CLOSED' to 'OPEN' and suddenly it's real. I booked the weekend immediately.",
-      "Thunder Knob isn't the most dramatic trail in the Cascades — it won't challenge you the way the Enchantments will later this summer. But for a season opener it's exactly right. The forest climb is quiet, the mud is honest, and then you break out at the top and Diablo Lake is just sitting there below you in that impossible glacial blue-green, and you remember why you do this.",
-      "First hike of the season. The legs remember. The lungs catch up. More to come.",
+      "The name alone is enough to make you curious. Dirty Harry's Balcony — it sounds like a spaghetti western, not a trail 45 minutes from Seattle. But that's part of the charm of hiking the I-90 corridor: everything is close, a little weird, and better than you expect.",
+      "The Birdhouse Trail earns its name quickly. Within the first half mile, handmade birdhouses start appearing nailed to the trees — dozens of them, painted and weathered, ranging from simple boxes to miniature cabins. Nobody knows exactly who built them all or when. They've just accumulated over the years, left by hikers who wanted to leave something. It's the most unexpectedly delightful thing I've seen on a trail.",
+      "The climb itself is steady but honest — 1,400 feet of gain through old-growth Douglas fir and western red cedar, muddy in April, smelling of rain and moss. The forest is dense enough that you can't see much until you can't miss it: the trail breaks out onto a rocky outcropping and suddenly the entire Snoqualmie Valley opens up below you. McClellan Butte. Mount Kent. Mount Washington. All of it just sitting there.",
+      "First hike of the season. Everything aches the right amount. More to come.",
     ],
     gear: [
       {
@@ -99,9 +105,9 @@ export const HIKES: Hike[] = [
         items: [
           "Merino base layer",
           "Fleece mid-layer",
-          "Waterproof shell (essential)",
+          "Waterproof shell",
           "Rain pants",
-          "Beanie + light gloves",
+          "Beanie + gloves",
         ],
       },
       {
@@ -109,7 +115,7 @@ export const HIKES: Hike[] = [
         items: [
           "Waterproof hiking boots",
           "Wool socks × 2",
-          "Gaiters (optional, mud)",
+          "Gaiters (mud season)",
         ],
       },
       {
@@ -128,8 +134,8 @@ export const HIKES: Hike[] = [
       {
         category: "Navigation",
         items: [
-          "AllTrails offline (cell dead zone)",
-          "Printed trail map",
+          "AllTrails offline map",
+          "Discover Pass (required)",
         ],
       },
       {
@@ -144,20 +150,32 @@ export const HIKES: Hike[] = [
       },
     ],
     route: {
-      startCoords: [48.6886, -121.0983],
-      endCoords: [48.6886, -121.0983],
+      startCoords: [47.4747, -121.7239],
+      endCoords: [47.4747, -121.7239],
       waypoints: [
-        [48.6886, -121.0983],
-        [48.692, -121.095],
-        [48.696, -121.092],
-        [48.6995, -121.089],
-        [48.7025, -121.0865],
-        [48.7035, -121.0847],
+        [47.4747, -121.7239],
+        [47.477, -121.720],
+        [47.480, -121.718],
+        [47.483, -121.716],
+        [47.487, -121.714],
+        [47.490, -121.712],
       ],
       isLoop: false,
     },
-    weather: "Check forecast — pack for rain regardless",
-    tags: ["North Cascades", "Alpine Lake", "Season Opener", "Forest", "Viewpoint"],
+    weather: "Cool and likely wet in April — waterproof everything",
+    tags: ["North Bend", "Snoqualmie Valley", "Viewpoint", "Old-Growth Forest", "Season Opener", "I-90 Corridor"],
+    hikers: [
+      {
+        name: "Arjun",
+        instagram: "arjun_naren",
+        avatar: "/avatars/arjun.jpg",
+      },
+      {
+        name: "Badri",
+        instagram: "badri9189",
+        avatar: "/avatars/badri.jpg",
+      },
+    ],
   },
 ];
 
