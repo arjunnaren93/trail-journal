@@ -26,6 +26,13 @@ export interface Hiker {
   avatar: string;
 }
 
+export interface WeatherSnapshot {
+  tempC: number;
+  tempF: number;
+  condition: string;
+  icon: string;
+}
+
 export interface Hike {
   slug: string;
   name: string;
@@ -46,6 +53,7 @@ export interface Hike {
   weather: string;
   tags: string[];
   upcoming?: boolean;
+  weatherSnapshot?: WeatherSnapshot;
   hikers?: Hiker[];
 }
 
@@ -57,112 +65,199 @@ export const HIKES: Hike[] = [
     date: "April 25, 2026",
     location: "North Bend, WA",
     region: "I-90 Corridor",
-    distanceKm: 6.9,
-    elevationGainM: 420,
-    maxElevationM: 817,
-    durationMin: 165,
+    distanceKm: 8.22,
+    elevationGainM: 427,
+    maxElevationM: 783,
+    durationMin: 180,
     difficulty: "Moderate",
-    heroImage: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=85&auto=format",
+    heroImage: "/photos/dirty-harrys-balcony/08-valley-panoramic-hero.jpg",
     photos: [
       {
-        src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200&q=85&auto=format",
-        alt: "View from Dirty Harry's Balcony across the Snoqualmie Valley",
-        caption: "The Balcony — McClellan Butte and Mount Washington laid out across the valley",
-        width: 1200,
-        height: 800,
+        src: "/photos/dirty-harrys-balcony/02-i90-drive-in.jpg",
+        alt: "Driving I-90 east toward the Cascades on a clear April morning",
+        caption: "I-90 east, windows down, the mountains already visible before we'd even parked.",
+        width: 1536,
+        height: 2048,
       },
       {
-        src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=85&auto=format",
-        alt: "Sunlit old-growth forest on the Birdhouse Trail",
-        caption: "The Birdhouse Trail climbs through second-growth Douglas fir — quiet and mossy in April",
-        width: 1200,
-        height: 800,
+        src: "/photos/dirty-harrys-balcony/03-dirty-harrys-trail-sign.jpg",
+        alt: "Dirty Harry's Peak Trail sign at the trailhead",
+        caption: "The name alone is enough to make you curious.",
+        width: 1536,
+        height: 2048,
       },
       {
-        src: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=85&auto=format",
-        alt: "Snoqualmie Valley from the ridge",
-        caption: "Looking back down the valley toward North Bend",
-        width: 1200,
-        height: 800,
+        src: "/photos/dirty-harrys-balcony/04-river-sandbar-overlook.jpg",
+        alt: "Hikers on a river sandbar below the forested Cascade slopes",
+        caption: "The Snoqualmie below — a reminder of how much valley there is beneath you.",
+        width: 2048,
+        height: 1536,
       },
       {
-        src: "https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=800&q=85&auto=format",
-        alt: "Misty forest trail in spring",
-        caption: "April mist on the climb — the trail earns the views",
-        width: 800,
-        height: 1200,
+        src: "/photos/dirty-harrys-balcony/05-cascade-peak-forest-approach.jpg",
+        alt: "Snow-capped Cascade peak rising above the forested valley on the drive in",
+        caption: "Every trail promises something at the end; here the mountain makes that promise visible from the road.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/10-canopy-sun-flare.jpg",
+        alt: "Sun bursting through the old-growth Douglas fir canopy",
+        caption: "Ancient firs close their arms overhead, letting one blade of light through.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/06-carved-tree-trunk.jpg",
+        alt: "Tree trunk covered in carved names and initials along the Birdhouse Trail",
+        caption: "Decades of hikers have left their mark. The forest keeps the record.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/13-mountain-through-dead-trees.jpg",
+        alt: "Cascade mountain peak framed through standing dead timber",
+        caption: "The forest keeps score of every storm — but the mountain behind it doesn't move.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/09-moss-and-fern-macro.jpg",
+        alt: "Close-up of moss and dead fern fronds on the forest floor",
+        caption: "The floor of the Cascades is its own world — slow, wet, and alive.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/07-snoqualmie-valley-view.jpg",
+        alt: "Snoqualmie Valley and I-90 corridor seen from Dirty Harry's Balcony",
+        caption: "The valley holds its breath beneath a sky that doesn't know the word narrow.",
+        width: 2048,
+        height: 1536,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/08-valley-panoramic-hero.jpg",
+        alt: "Panoramic view of the Snoqualmie Valley, I-90, and Cascade peaks from the balcony",
+        caption: "The whole corridor laid out below — mountains, highway, forest, all of it.",
+        width: 2048,
+        height: 813,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/11-boots-on-the-balcony.jpg",
+        alt: "Hiking boots resting on the rocky balcony with the Cascade valley behind",
+        caption: "Boots earned their rest here. The Cascades don't ask for anything more.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/14-indian-paintbrush.jpg",
+        alt: "Indian paintbrush wildflowers in brilliant red bloom",
+        caption: "Indian paintbrush burns red where the rock is barely soil, unbothered by the altitude.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/12-arjun-and-badri-summit.jpg",
+        alt: "Arjun and Badri at the balcony viewpoint, smiling at the summit",
+        caption: "The best views are better with company.",
+        width: 1536,
+        height: 2048,
+      },
+      {
+        src: "/photos/dirty-harrys-balcony/15-post-hike-tacos.jpg",
+        alt: "Post-hike tacos at a North Bend taqueria",
+        caption: "Every great hike ends with great tacos. Non-negotiable.",
+        width: 1536,
+        height: 2048,
       },
     ],
     story: [
-      "The name alone is enough to make you curious. Dirty Harry's Balcony — it sounds like a spaghetti western, not a trail 45 minutes from Seattle. But that's part of the charm of hiking the I-90 corridor: everything is close, a little weird, and better than you expect.",
-      "The Birdhouse Trail earns its name quickly. Within the first half mile, handmade birdhouses start appearing nailed to the trees — dozens of them, painted and weathered, ranging from simple boxes to miniature cabins. Nobody knows exactly who built them all or when. They've just accumulated over the years, left by hikers who wanted to leave something. It's the most unexpectedly delightful thing I've seen on a trail.",
-      "The climb itself is steady but honest — 1,400 feet of gain through old-growth Douglas fir and western red cedar, muddy in April, smelling of rain and moss. The forest is dense enough that you can't see much until you can't miss it: the trail breaks out onto a rocky outcropping and suddenly the entire Snoqualmie Valley opens up below you. McClellan Butte. Mount Kent. Mount Washington. All of it just sitting there.",
-      "First hike of the season. Everything aches the right amount. More to come.",
+      "Last-minute Saturday plan. I looked out the window, saw the sun actually doing its job for once, and texted Badri. We got there later than you'd want but the lot had spots and the sky was still putting on a show. Good enough.",
+      "We saw a lot of birds on the way up and wondered why it was called the Birdhouse Trail. Never figured that out. We also wondered who Dirty Harry was. Turns out it has nothing to do with Clint Eastwood. The peak and the balcony are named after Harry Gault, a logger who worked this mountain in the 1940s. Just a guy named Harry, presumably dirty from work, who logged the whole thing. The mountain got his name. Clint Eastwood's movie came out thirty years later and the confusion has been great for trail marketing ever since.",
+      "We had not packed food. Not a bar, not a handful of trail mix. Nothing. By the time we hit the viewpoint we weren't thinking about views, we were thinking about tacos. The whole descent was a two-man food podcast. What to order, where to go, rice or fries, settled with the urgency of people who had genuinely earned an opinion.",
+      "About 1,400 feet of gain through old-growth fir and cedar, muddy in April, the kind that tests your grip. I wore a fleece at the start and dropped it twenty minutes in. We also briefly tried to hike to the wrong summit. Two minutes in, Badri checked the map. I'm counting that as good navigation. When the trail finally opens onto the rocky balcony and the whole Snoqualmie Valley is just sitting there below you, the ache feels right.",
+      "It's been a while since I did any cardio. Badri was patient in a way only a good hiking partner can be. First hike of the season. More to come.",
     ],
     gear: [
       {
         category: "Layers",
         items: [
-          "Merino base layer",
+          "Base layer",
           "Fleece mid-layer",
-          "Waterproof shell",
-          "Rain pants",
-          "Beanie + gloves",
+          "Hiking pants",
+          "Cap",
         ],
       },
       {
         category: "Footwear",
         items: [
-          "Waterproof hiking boots",
-          "Wool socks × 2",
-          "Gaiters (mud season)",
+          "Hiking boots",
+          "Hiking socks",
         ],
       },
       {
         category: "Hydration",
-        items: ["2L water", "Electrolyte tabs"],
+        items: ["2L water"],
       },
       {
         category: "Nutrition",
-        items: [
-          "PB&J wrap",
-          "Trail mix",
-          "2× energy bars",
-          "Coffee thermos",
-        ],
+        items: ["Nothing. Absolutely nothing."],
       },
       {
         category: "Navigation",
         items: [
           "AllTrails offline map",
-          "Discover Pass (required)",
+          "Strava",
         ],
       },
       {
         category: "Safety & Extras",
-        items: [
-          "First aid kit",
-          "Headlamp",
-          "Trekking poles",
-          "Camera",
-          "Sunscreen",
-        ],
+        items: ["Sunscreen"],
       },
     ],
     route: {
-      startCoords: [47.4747, -121.7239],
-      endCoords: [47.4747, -121.7239],
+      startCoords: [47.43112, -121.63278],
+      endCoords: [47.43109, -121.63308],
       waypoints: [
-        [47.4747, -121.7239],
-        [47.477, -121.720],
-        [47.480, -121.718],
-        [47.483, -121.716],
-        [47.487, -121.714],
-        [47.490, -121.712],
+        [47.43112, -121.63278],
+        [47.43236, -121.63168],
+        [47.43269, -121.62968],
+        [47.43219, -121.62758],
+        [47.43129, -121.62647],
+        [47.43109, -121.62493],
+        [47.43063, -121.62315],
+        [47.43100, -121.62211],
+        [47.43183, -121.62273],
+        [47.43271, -121.62197],
+        [47.43279, -121.62063],
+        [47.43207, -121.61892],
+        [47.43362, -121.61512],
+        [47.43390, -121.61423],
+        [47.43456, -121.61183],
+        [47.43555, -121.61253],
+        [47.43375, -121.61018],
+        [47.43369, -121.61383],
+        [47.43364, -121.61642],
+        [47.43301, -121.61835],
+        [47.43305, -121.62030],
+        [47.43261, -121.62164],
+        [47.43090, -121.62211],
+        [47.43059, -121.62286],
+        [47.43131, -121.62498],
+        [47.43225, -121.62731],
+        [47.43262, -121.62934],
+        [47.43240, -121.63162],
+        [47.43112, -121.63305],
       ],
       isLoop: false,
     },
-    weather: "Cool and likely wet in April — waterproof everything",
+    weather: "Mainly clear, 14°C at trail end",
+    weatherSnapshot: {
+      tempC: 14,
+      tempF: 57,
+      condition: "Mainly Clear",
+      icon: "🌤️",
+    },
     tags: ["North Bend", "Snoqualmie Valley", "Viewpoint", "Old-Growth Forest", "Season Opener", "I-90 Corridor"],
     hikers: [
       {

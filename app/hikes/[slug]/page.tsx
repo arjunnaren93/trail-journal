@@ -88,7 +88,7 @@ export default async function HikePage({
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* ── Story ── full-width editorial */}
-        <div className="py-16 md:py-20 max-w-3xl">
+        <div className="py-16 md:py-20 border-b border-border">
           <p className="text-xs text-gold tracking-[0.35em] uppercase mb-8">
             The Story
           </p>
@@ -102,6 +102,13 @@ export default async function HikePage({
               >
                 {para}
               </p>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-3 mt-10">
+            {hike.tags.map((tag) => (
+              <span key={tag} className="text-xs text-muted/60 hover:text-gold transition-colors duration-200 cursor-default">
+                #{tag.toLowerCase().replace(/\s+/g, "")}
+              </span>
             ))}
           </div>
         </div>
@@ -136,18 +143,6 @@ export default async function HikePage({
             </div>
           </div>
         )}
-
-        {/* ── Tags ── */}
-        <div className="flex flex-wrap gap-2 pb-14 border-b border-border">
-          {hike.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[10px] tracking-[0.15em] uppercase text-muted border border-border px-3 py-1"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
 
         {/* ── Gear — compact horizontal grid ── */}
         <div className="py-14 border-b border-border">

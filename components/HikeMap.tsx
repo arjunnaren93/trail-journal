@@ -9,15 +9,17 @@ interface Props {
 
 export default function HikeMap({ route }: Props) {
   const pts = route.waypoints;
-  const center: [number, number] = [
-    pts.reduce((s, p) => s + p[0], 0) / pts.length,
-    pts.reduce((s, p) => s + p[1], 0) / pts.length,
+  const lats = pts.map((p) => p[0]);
+  const lons = pts.map((p) => p[1]);
+  const bounds: [[number, number], [number, number]] = [
+    [Math.min(...lats), Math.min(...lons)],
+    [Math.max(...lats), Math.max(...lons)],
   ];
 
   return (
     <MapContainer
-      center={center}
-      zoom={12}
+      bounds={bounds}
+      boundsOptions={{ padding: [40, 40] }}
       style={{ height: "480px", width: "100%" }}
       zoomControl={false}
       scrollWheelZoom={false}

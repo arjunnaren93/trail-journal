@@ -50,6 +50,7 @@ export default function StatsBar({ hike }: { hike: Hike }) {
           <WeatherWidget
             lat={hike.route.startCoords[0]}
             lon={hike.route.startCoords[1]}
+            snapshot={hike.weatherSnapshot}
           />
         </div>
       </div>

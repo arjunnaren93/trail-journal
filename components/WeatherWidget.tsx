@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { WeatherSnapshot } from "@/lib/hikes";
 
-interface WeatherData {
+interface LiveWeather {
   tempC: number;
   tempF: number;
   label: string;
@@ -11,7 +12,7 @@ interface WeatherData {
 
 function getWeatherInfo(code: number): { label: string; icon: string } {
   if (code === 0) return { label: "Clear", icon: "☀️" };
-  if (code <= 2) return { label: "Partly Cloudy", icon: "⛅" };
+  if (code <= 2) return { label: "Mainly Clear", icon: "🌤️" };
   if (code === 3) return { label: "Overcast", icon: "☁️" };
   if (code <= 48) return { label: "Foggy", icon: "🌫️" };
   if (code <= 55) return { label: "Drizzle", icon: "🌦️" };
@@ -21,10 +22,17 @@ function getWeatherInfo(code: number): { label: string; icon: string } {
   return { label: "Storm", icon: "⛈️" };
 }
 
-export default function WeatherWidget({ lat, lon }: { lat: number; lon: number }) {
-  const [weather, setWeather] = useState<WeatherData | null>(null);
+interface Props {
+  lat: number;
+  lon: number;
+  snapshot?: WeatherSnapshot;
+}
+
+export default function WeatherWidget({ lat, lon, snapshot }: Props) {
+  const [live, setLive] = useState<LiveWeather | null>(null);
 
   useEffect(() => {
+    if (snapshot) return;
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code&temperature_unit=celsius`
     )
@@ -33,20 +41,26 @@ export default function WeatherWidget({ lat, lon }: { lat: number; lon: number }
         const tempC = Math.round(data.current.temperature_2m);
         const tempF = Math.round((tempC * 9) / 5 + 32);
         const { label, icon } = getWeatherInfo(data.current.weather_code);
-        setWeather({ tempC, tempF, label, icon });
+        setLive({ tempC, tempF, label, icon });
       })
       .catch(() => null);
-  }, [lat, lon]);
+  }, [lat, lon, snapshot]);
+
+  const display = snapshot
+    ? { icon: snapshot.icon, tempC: snapshot.tempC, tempF: snapshot.tempF, label: snapshot.condition }
+    : live;
 
   return (
     <div className="shrink-0">
-      <p className="text-[10px] text-muted tracking-[0.2em] uppercase">Weather</p>
-      {weather ? (
+      <p className="text-[10px] text-muted tracking-[0.2em] uppercase">
+        {snapshot ? "Weather" : "Weather · Live"}
+      </p>
+      {display ? (
         <>
           <p className="font-mono text-sm text-cream mt-0.5">
-            {weather.icon} {weather.tempC}°C · {weather.tempF}°F
+            {display.icon} {display.tempC}°C · {display.tempF}°F
           </p>
-          <p className="text-[9px] text-muted/70 mt-0.5 tracking-wide">{weather.label}</p>
+          <p className="text-[9px] text-muted/70 mt-0.5 tracking-wide">{display.label}</p>
         </>
       ) : (
         <p className="font-mono text-sm text-cream/30 mt-0.5">—</p>
