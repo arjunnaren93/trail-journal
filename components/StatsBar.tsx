@@ -27,7 +27,7 @@ export default function StatsBar({ hike }: { hike: Hike }) {
   ];
 
   return (
-    <div className="sticky top-16 z-40 bg-ink/95 backdrop-blur-sm border-b border-border">
+    <div className="border-b border-border" style={{ position: "sticky", top: "64px", zIndex: 99, background: "#080808" }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-4 overflow-x-auto">
         <div className="flex items-start gap-0 min-w-max">
           {stats.map((stat, i) => (

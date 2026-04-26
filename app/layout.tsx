@@ -32,6 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${playfair.variable} ${inter.variable} ${spaceGrotesk.variable} h-full`}
     >
       <body className="min-h-full bg-ink text-cream antialiased">{children}</body>
