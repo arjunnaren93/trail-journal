@@ -77,10 +77,10 @@ body::after {
 .leaflet-container {
   background: #111;
 }
-.leaflet-control-attribution {
-  background: rgba(8, 8, 8, 0.8) !important;
-  color: #5a5a5a !important;
+
+.topo-tile {
+  filter: invert(1) grayscale(1) brightness(0.65) contrast(1.3);
 }
-.leaflet-control-attribution a {
-  color: #5a5a5a !important;
+.leaflet-control-attribution {
+  display: none !important;
 }

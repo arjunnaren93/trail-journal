@@ -5,7 +5,7 @@ import { HIKES, getHike } from "@/lib/hikes";
 import Navbar from "@/components/Navbar";
 import StatsBar from "@/components/StatsBar";
 import PhotoGallery from "@/components/PhotoGallery";
-import HikeMapWrapper from "@/components/HikeMapWrapper";
+import RouteSection from "@/components/RouteSection";
 
 export function generateStaticParams() {
   return HIKES.map((h) => ({ slug: h.slug }));
@@ -201,9 +201,7 @@ export default async function HikePage({
           <h2 className="font-display text-4xl md:text-5xl text-cream mb-8">
             The Route
           </h2>
-          <div className="border border-border overflow-hidden">
-            <HikeMapWrapper route={hike.route} />
-          </div>
+          <RouteSection route={hike.route} />
           <div className="flex items-center gap-6 mt-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-forest" />

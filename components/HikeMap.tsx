@@ -20,9 +20,10 @@ export default function HikeMap({ route }: Props) {
     <MapContainer
       bounds={bounds}
       boundsOptions={{ padding: [40, 40] }}
-      style={{ height: "480px", width: "100%" }}
+      style={{ height: "480px", width: "100%", isolation: "isolate" }}
       zoomControl={false}
       scrollWheelZoom={false}
+      dragging={false}
     >
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
