@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local hike assets (photos, gpx, fit — not for repo)
+/assets
