@@ -32,14 +32,14 @@ export default function Navbar() {
     >
       <Link
         href="/"
-        className="font-display text-sm tracking-[0.25em] uppercase text-cream/70 hover:text-gold transition-colors duration-300"
+        className="font-display text-xs md:text-sm tracking-[0.2em] md:tracking-[0.25em] uppercase text-cream/70 hover:text-gold transition-colors duration-300"
       >
         Trail Journal
       </Link>
-      <div className="flex items-center gap-8">
+      <div className="flex items-center gap-6 md:gap-8">
         <Link
           href="/#hikes"
-          className="text-xs tracking-[0.2em] uppercase text-muted hover:text-cream transition-colors duration-300"
+          className="hidden md:block text-xs tracking-[0.2em] uppercase text-muted hover:text-cream transition-colors duration-300"
         >
           Hikes
         </Link>
