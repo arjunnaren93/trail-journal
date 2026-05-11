@@ -218,7 +218,7 @@ export const HIKES: Hike[] = [
     gear: [
       {
         category: "Layers",
-        items: ["Hiking shirt", "Light jacket"],
+        items: ["Under Armour long sleeve", "Hiking pants", "Cap"],
       },
       {
         category: "Footwear",

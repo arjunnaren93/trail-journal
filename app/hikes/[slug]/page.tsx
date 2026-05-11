@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import StatsBar from "@/components/StatsBar";
 import PhotoGallery from "@/components/PhotoGallery";
 import RouteSection from "@/components/RouteSection";
+import HikersSection from "@/components/HikersSection";
 
 export function generateStaticParams() {
   return HIKES.map((h) => ({ slug: h.slug }));
@@ -115,33 +116,7 @@ export default async function HikePage({
 
         {/* ── Hikers ── */}
         {hike.hikers && hike.hikers.length > 0 && (
-          <div className="py-10 border-b border-border">
-            <p className="text-[10px] text-muted tracking-[0.35em] uppercase mb-6">
-              On This Hike
-            </p>
-            <div className="flex flex-wrap gap-6">
-              {hike.hikers.map((hiker) => (
-                <a
-                  key={hiker.instagram}
-                  href={`https://instagram.com/${hiker.instagram}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex flex-col items-center gap-2 group"
-                >
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-border group-hover:border-gold transition-colors duration-300">
-                    <img
-                      src={hiker.avatar}
-                      alt={hiker.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <span className="text-[10px] text-muted tracking-[0.1em] group-hover:text-gold transition-colors duration-300">
-                    @{hiker.instagram}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
+          <HikersSection hikers={hike.hikers} />
         )}
 
         {/* ── Gear — compact horizontal grid ── */}
