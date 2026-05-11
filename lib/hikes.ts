@@ -208,10 +208,10 @@ export const HIKES: Hike[] = [
       },
     ],
     story: [
-      "Five hours of sleep and a 7am alarm is a combination best described as optimistic. I lay there staring at the ceiling, fully aware that five others were counting on me, and still could not move. Then Badri called. I could hear it in his voice — not anger, just quiet disappointment, which is somehow worse. Then Apoorva called and told me, very calmly, that she could no longer trust me with early morning hikes. That one landed. I was up in ten minutes.",
+      "Five hours of sleep and a 7am alarm is a combination best described as optimistic. I lay there staring at the ceiling, fully aware that five others were counting on me, and still could not move. Then Badri called. I could hear it in his voice. Not anger. Just quiet disappointment, which is somehow worse. Then Apoorva called and told me, very calmly, that she could no longer trust me with early morning hikes. That one landed. I was up in ten minutes.",
       "Coffee first. Always. We stopped at Café Hagen on 5th Ave in Lower Queen Anne, a Scandinavian-inspired spot that does serious coffee and even more serious pastries. I went with a black coffee and a ham and cheese croissant, and the guilt of almost bailing on five people pairs with both surprisingly well. Suitably caffeinated, we pointed the car north toward Granite Falls and the Mountain Loop Highway.",
-      "Lake 22 sits in Mount Baker-Snoqualmie National Forest, about an hour and a half from Seattle. The trail winds through old-growth forest that smells like a rain cloud decided to stay permanently, with moss covering everything and waterfalls appearing every few hundred meters like the mountain just cannot help itself. Hundred Step Falls at 1.6 miles is the main event — glacial runoff from Mount Pilchuck dropping down the rock face in one long crash of white water. The parking lot was already full at 10:40am, which tells you everything about how popular this trail is on a Saturday.",
-      "The first half is genuinely lovely. The second half is where the mountain gets honest with you — the trail exits the forest and climbs a rocky scree field, the kind that makes your ankles file a formal complaint. I had done this hike before and knew this part was coming. I looked over at Lavanya and saw the face of someone reconsidering life choices. I pointed at the mountains and told her to take it all in. It lightened her up. We also made a few stops for Ramya, who was filming content with the kind of commitment that suggested the trail was primarily a backdrop. Influencer life.",
+      "Lake 22 sits in Mount Baker-Snoqualmie National Forest, about an hour and a half from Seattle. The trail winds through old-growth forest that smells like a rain cloud decided to stay permanently, with moss covering everything and waterfalls appearing every few hundred meters like the mountain just cannot help itself. Hundred Step Falls at 1.6 miles is the main event. Glacial runoff from Mount Pilchuck, dropping down the rock face in one long crash of white water. The parking lot was already full at 10:40am, which tells you everything about how popular this trail is on a Saturday.",
+      "The first half is genuinely lovely. The second half is where the mountain gets honest with you. The trail exits the forest and climbs a rocky scree field, the kind that makes your ankles file a formal complaint. I had done this hike before and knew this part was coming. I looked over at Lavanya and saw the face of someone reconsidering life choices. I pointed at the mountains and told her to take it all in. It lightened her up. We also made a few stops for Ramya, who was filming content with the kind of commitment that suggested the trail was primarily a backdrop. Influencer life.",
       "The lake is worth every step. Tucked into a glacial basin with steep cliffs on three sides and waterfalls pouring down all of them, it is one of those places that makes you go quiet for a second before someone pulls out a Subway footlong. Grilled chicken, since you asked. Badri had jokes about the footlong. I will leave those where they belong. We sat there watching the water and eating chips and nobody wanted to leave.",
       "The descent was fast. Lavanya slipped on the way down, lost a nail, and earned a story she will be telling for years. Pranoy and I hopped off the trail to reach the base of a waterfall and attempted approximately eight seconds of meditation before our friends, from the trail above, started throwing stones in what I can only describe as targeted discouragement. End of yogic career. We made it back to the car in good time, drove home, and that was that.",
     ],
@@ -410,7 +410,7 @@ export const HIKES: Hike[] = [
       {
         src: "/photos/dirty-harrys-balcony/04-river-sandbar-overlook.jpg",
         alt: "Hikers on a river sandbar below the forested Cascade slopes",
-        caption: "The Snoqualmie below — a reminder of how much valley there is beneath you.",
+        caption: "The Snoqualmie below. A reminder of how much valley there is beneath you.",
         width: 2048,
         height: 1536,
       },
@@ -438,14 +438,14 @@ export const HIKES: Hike[] = [
       {
         src: "/photos/dirty-harrys-balcony/13-mountain-through-dead-trees.jpg",
         alt: "Cascade mountain peak framed through standing dead timber",
-        caption: "The forest keeps score of every storm — but the mountain behind it doesn't move.",
+        caption: "The forest keeps score of every storm, but the mountain behind it doesn't move.",
         width: 1536,
         height: 2048,
       },
       {
         src: "/photos/dirty-harrys-balcony/09-moss-and-fern-macro.jpg",
         alt: "Close-up of moss and dead fern fronds on the forest floor",
-        caption: "The floor of the Cascades is its own world — slow, wet, and alive.",
+        caption: "The floor of the Cascades is its own world. Slow, wet, and alive.",
         width: 1536,
         height: 2048,
       },
@@ -459,7 +459,7 @@ export const HIKES: Hike[] = [
       {
         src: "/photos/dirty-harrys-balcony/08-valley-panoramic-hero.jpg",
         alt: "Panoramic view of the Snoqualmie Valley, I-90, and Cascade peaks from the balcony",
-        caption: "The whole corridor laid out below — mountains, highway, forest, all of it.",
+        caption: "The whole corridor laid out below. Mountains, highway, forest, all of it.",
         width: 2048,
         height: 813,
       },
