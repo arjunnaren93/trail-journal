@@ -3,9 +3,11 @@
 interface Props {
   profile: [number, number, number, number][];
   progress: number;
+  distanceMi: number;
+  gainFt: number;
 }
 
-export default function ElevationProfile({ profile, progress }: Props) {
+export default function ElevationProfile({ profile, progress, distanceMi, gainFt }: Props) {
   if (!profile || profile.length === 0) return null;
 
   const W = 1000;
@@ -33,8 +35,8 @@ export default function ElevationProfile({ profile, progress }: Props) {
   const dotYPct = (toY(currentPt[2]) / CHART_H) * 100;
 
   // Stats
-  const totalDistMi = (maxDist / 1000 * 0.621371).toFixed(1);
-  const gainFt = Math.round((maxEle - minEle) * 3.28084).toLocaleString();
+  const totalDistMi = distanceMi.toFixed(1);
+  const gainFtLabel = gainFt.toLocaleString();
   const startElevFt = Math.round(minEle * 3.28084).toLocaleString();
   const peakElevFt = Math.round(maxEle * 3.28084).toLocaleString();
   const currentElevFt = Math.round(currentPt[2] * 3.28084).toLocaleString();
@@ -51,7 +53,7 @@ export default function ElevationProfile({ profile, progress }: Props) {
       <div className="flex items-center justify-between mb-2">
         <p className="text-[9px] text-muted tracking-[0.2em] uppercase">Elevation Profile</p>
         <div className="flex items-center gap-2 font-mono text-[10px] text-muted">
-          <span>+{gainFt} ft</span>
+          <span>+{gainFtLabel} ft</span>
           <span className="text-border">·</span>
           <span>{totalDistMi} mi</span>
         </div>

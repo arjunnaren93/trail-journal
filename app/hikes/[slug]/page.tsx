@@ -201,7 +201,11 @@ export default async function HikePage({
           <h2 className="font-display text-4xl md:text-5xl text-cream mb-8">
             The Route
           </h2>
-          <RouteSection route={hike.route} />
+          <RouteSection
+            route={hike.route}
+            distanceMi={parseFloat((hike.distanceKm * 0.621371).toFixed(1))}
+            gainFt={Math.round(hike.elevationGainM * 3.28084)}
+          />
           <div className="flex items-center gap-6 mt-4">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 rounded-full bg-forest" />

@@ -11,9 +11,11 @@ const DURATION = 4500;
 
 interface Props {
   route: HikeRoute;
+  distanceMi: number;
+  gainFt: number;
 }
 
-export default function RouteSection({ route }: Props) {
+export default function RouteSection({ route, distanceMi, gainFt }: Props) {
   const [progress, setProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const rafRef = useRef<number | null>(null);
@@ -121,7 +123,7 @@ export default function RouteSection({ route }: Props) {
       </div>
 
       {route.elevationProfile && (
-        <ElevationProfile profile={route.elevationProfile} progress={progress} />
+        <ElevationProfile profile={route.elevationProfile} progress={progress} distanceMi={distanceMi} gainFt={gainFt} />
       )}
     </div>
   );
